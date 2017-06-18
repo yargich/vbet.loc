@@ -45,7 +45,7 @@
                      element-to-add-class="set-top-from-parent" container-class="left-container-content-p">
 
 
-                    <h4 title="{{competition.name}}" ng-click="expandCompetition(competition, sport);" ng-show="!env.preMatchMultiSelection" ng-class="{'active': (selectedCompetition.id == competition.id) && !outrightSelected}">
+                    <h4 title="{{competition.name}}" ng-click="($location.path() === '/' ? $location.path('/sport').search({type: '0'}) : void()); env.preMatchMultiSelection ? '' : expandCompetition(competition, sport);" ng-show="!env.preMatchMultiSelection" ng-class="{'active': (selectedCompetition.id == competition.id) && !outrightSelected}">
                         <i> {{competition.name}}</i><b class="arrow-rotate icon-arrow-right6"></b>
 
                     </h4>
@@ -72,7 +72,7 @@
 
 
 
-                    <h4 title="{{competition.region.name}}" ng-click="expandCompetition(competition, sport);" ng-show="!env.preMatchMultiSelection" ng-class="{'active': (selectedCompetition.id == competition.id) && !outrightSelected}">
+                    <h4 title="{{competition.region.name}}" ng-click="($location.path() === '/' ? $location.path('/sport').search({type: '0'}) : void()); env.preMatchMultiSelection ? '' : expandCompetition(competition, sport);" ng-show="!env.preMatchMultiSelection" ng-class="{'active': (selectedCompetition.id == competition.id) && !outrightSelected}">
                         <img ng-if="conf.teamLogosPath && !conf.showPopularCompetitionsSportIcons" ng-src="{{conf.teamLogosPath}}c/s/1/{{competition.id}}.png"/>
                         <span ng-if="conf.showPopularCompetitionsSportIcons" class="sport-icon-pcj {{competition.sport_alias}}"></span>
                         <i> {{conf.enableOlympicGames ? competition.name : (competition.name|removeParts:[competition.sport_name])}}</i><b class="arrow-rotate icon-arrow-right6"></b>
